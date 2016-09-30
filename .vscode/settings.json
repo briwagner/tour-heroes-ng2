@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+    "**/*.map": true,
+    "**/*.js": true,
+    "**/*spec*":true
+    }
+}
