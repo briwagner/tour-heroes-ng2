@@ -58,24 +58,19 @@ import { HeroService } from './hero.service';
 
 
 export class AppComponent implements OnInit {
-    constructor(private heroService: HeroService) {}; 
     title = "Here is the Title, so Cool";
     heroes: Hero[];
     selectedHero: Hero;
 
-    ngOnInit(): void {
-        this.getHeroes();
-    }
-
-    getHeroes(): void {
-    var self = this;
-    this.heroService.getHeroesSlowly().then(function(heroes) {
-        self.heroes = heroes;
-        }
-    };
-
-    onSelect = function(hero: string) {
-        this.selectedHero = hero;
-    };
+  constructor(private heroService: HeroService) { }
+  getHeroes(): void {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
 

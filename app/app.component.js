@@ -14,21 +14,17 @@ var AppComponent = (function () {
     function AppComponent(heroService) {
         this.heroService = heroService;
         this.title = "Here is the Title, so Cool";
-        this.onSelect = function (hero) {
-            this.selectedHero = hero;
-        };
     }
-    ;
+    AppComponent.prototype.getHeroes = function () {
+        var _this = this;
+        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+    };
     AppComponent.prototype.ngOnInit = function () {
         this.getHeroes();
     };
-    AppComponent.prototype.getHeroes = function () {
-        var self = this;
-        this.heroService.getHeroesSlowly().then(function (heroes) {
-            self.heroes = heroes;
-        });
+    AppComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
     };
-    ;
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
