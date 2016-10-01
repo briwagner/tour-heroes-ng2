@@ -9,23 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HeroDetailComponent = (function () {
-    function HeroDetailComponent() {
+var mock_hero_1 = require('./mock-hero');
+var HeroService = (function () {
+    function HeroService() {
     }
-    HeroDetailComponent = __decorate([
-        core_1.Component({
-            selector: 'hero-detail',
-            templateUrl: 'app/hero-detail.component.html',
-            inputs: ['hero']
-        }), 
+    HeroService.prototype.getHeroes = function () {
+        return Promise.resolve(mock_hero_1.HEROES);
+    };
+    HeroService.prototype.getHeroesSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            return setTimeout(resolve, 2000);
+        }) // delay 2 seconds
+            .then(function () { return _this.getHeroes(); });
+    };
+    HeroService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], HeroDetailComponent);
-    return HeroDetailComponent;
+    ], HeroService);
+    return HeroService;
 }());
-exports.HeroDetailComponent = HeroDetailComponent;
-// two ways to use imports
-// 1. import Input module from ng core; 
-// declare @Input decorator above variables.
-// 2. OR just add the inputs: array inside the @component 
-// and declare the variables as needed, with 'quotes' 
-//# sourceMappingURL=hero-detail.component.js.map
+exports.HeroService = HeroService;
+//# sourceMappingURL=hero.service.js.map

@@ -140,3 +140,12 @@ nav a.router-link-active {
 * { 
   font-family: Arial, Helvetica, sans-serif; 
 }
+
+div.heroes {
+  width: 280px;
+  float:left;
+  padding: 5px 15px;
+}
+
+div.detail {
+}

@@ -1,1 +1,12 @@
-<h3>Here is the Hero Template</h3>
+<div *ngIf="!heroes">
+    Loading ...
+</div>
+
+<div class="heroes">
+    <ul>
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero == selectedHero">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+    </ul>
+</div>
+<hero-detail [hero]="selectedHero"></hero-detail>
