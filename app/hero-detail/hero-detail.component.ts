@@ -13,6 +13,10 @@ import { Hero } from '../hero/hero';
 export class HeroDetailComponent {
     // @Input()
     hero: Hero;
+
+    addFave() {
+        this.hero.faves += 1;
+    }
 }
 
 // two ways to use imports

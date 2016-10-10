@@ -18,7 +18,7 @@ export class DashboardComponent {
 
   ngOnInit(): void {
     this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1, 5));
+      .then(heroes => this.heroes = heroes.sort( (a,b) => b.faves - a.faves) );
   }
 
   gotoDetail(hero: Hero): void { /* not implemented yet */}

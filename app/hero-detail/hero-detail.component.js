@@ -12,6 +12,9 @@ var core_1 = require('@angular/core');
 var HeroDetailComponent = (function () {
     function HeroDetailComponent() {
     }
+    HeroDetailComponent.prototype.addFave = function () {
+        this.hero.faves += 1;
+    };
     HeroDetailComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
