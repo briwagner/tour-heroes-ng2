@@ -1,0 +1,13 @@
+<h4>Dashboard is here</h4>
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <div class="col-1-4">
+    <div class="module hero">
+      <ol class="list-group">
+        <li *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="list-group-item">
+          <h4>{{hero.name}}</h4>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
