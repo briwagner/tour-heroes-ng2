@@ -31,13 +31,17 @@ export class HeroDetailComponent implements OnInit {
                 .then(hero => this.hero = hero);
         });
     }
-
     goBack() {
         this.location.back();
     }
-
+    save() {
+        this.heroService.update(this.hero)
+                        .then( () => this.goBack() );
+    }
     addFave() {
         this.hero.faves += 1;
+        this.heroService.update(this.hero)
+                        .then( () => this.goBack());
     }
 }
 

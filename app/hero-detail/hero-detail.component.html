@@ -4,6 +4,7 @@
     <div class="input-group">
         <label>Name: </label>
         <input [(ngModel)]="hero.name" class="form-control" placeholder="Name"/>
+        <button (click)="save()" class="save-button">Save</button>
         <span class="faves" (click)="addFave()">
             <h5>{{hero.faves}}</h5><img src="app/assets/heart.png" alt="Hearts" />
         </span>
