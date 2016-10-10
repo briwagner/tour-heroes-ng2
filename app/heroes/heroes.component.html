@@ -1,3 +1,9 @@
+<div class="add-hero">
+  <label>Add new hero</label> 
+  <input #heroName placeholder="Hero name"/>
+  <button (click)="add(heroName.value); heroName.value=''">Add</button>
+</div>
+
 <div class="heroes">
     <ul class="list-group">
     <li *ngFor="let hero of heroes" 

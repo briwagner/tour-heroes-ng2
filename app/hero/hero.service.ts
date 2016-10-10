@@ -19,10 +19,16 @@ export class HeroService {
                .then(response => response.json().data as Hero[])
                .catch(this.handleError);
   }
-
   getHero(id: number): Promise<Hero> {
     return this.getHeroes()
       .then(heroes => heroes.find(hero => hero.id === id));
+  }
+  create(name: string): Promise<Hero> {
+    return this.http
+      .post(this.heroesUrl, JSON.stringify({name: name, faves: 0}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data)
+      .catch(this.handleError);
   }
   update(hero: Hero): Promise<Hero> {
     const url = `${this.heroesUrl}/${hero.id}`;
