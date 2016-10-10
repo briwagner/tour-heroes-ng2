@@ -16,6 +16,8 @@ var heroes_component_1 = require('../heroes/heroes.component');
 var hero_detail_component_1 = require('../hero-detail/hero-detail.component');
 var hero_service_1 = require('../hero/hero.service');
 var dashboard_component_1 = require('../dashboard/dashboard.component');
+var get_fave_pipe_1 = require('../shared/get-fave.pipe');
+var sort_id_pipe_1 = require('../shared/sort-id.pipe');
 var app_routing_1 = require('../app.routing');
 var AppModule = (function () {
     function AppModule() {
@@ -31,7 +33,9 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 dashboard_component_1.DashboardComponent,
                 heroes_component_1.HeroesComponent,
-                hero_detail_component_1.HeroDetailComponent
+                hero_detail_component_1.HeroDetailComponent,
+                get_fave_pipe_1.GetFavePipe,
+                sort_id_pipe_1.SortIdPipe
             ],
             providers: [
                 hero_service_1.HeroService

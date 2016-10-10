@@ -57,7 +57,9 @@ nav a:hover {
 nav a.router-link-active {
   color: #039be5;
 }
-
+.active, .selected {
+  box-shadow: 1px 1px 3px green;
+}
 /* items class */
 .items {
   margin: 0 0 2em 0;
@@ -144,10 +146,7 @@ nav a.router-link-active {
 div.heroes {
   width: 280px;
   float:left;
-  padding: 5px 15px;
-}
-
-div.detail {
+  padding: 5px 15px 5px 0;
 }
 
 input.form-control {

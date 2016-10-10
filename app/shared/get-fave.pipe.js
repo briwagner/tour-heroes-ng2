@@ -9,22 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_hero_1 = require('../mock-hero');
-var HeroService = (function () {
-    function HeroService() {
+var GetFavePipe = (function () {
+    function GetFavePipe() {
     }
-    HeroService.prototype.getHeroes = function () {
-        return Promise.resolve(mock_hero_1.HEROES);
+    GetFavePipe.prototype.transform = function (value, args) {
+        return value.sort(function (a, b) { return b.faves - a.faves; })
+            .slice(0, args);
     };
-    HeroService.prototype.getHero = function (id) {
-        return this.getHeroes()
-            .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
-    };
-    HeroService = __decorate([
-        core_1.Injectable(), 
+    GetFavePipe = __decorate([
+        core_1.Pipe({
+            name: 'getFave'
+        }), 
         __metadata('design:paramtypes', [])
-    ], HeroService);
-    return HeroService;
+    ], GetFavePipe);
+    return GetFavePipe;
 }());
-exports.HeroService = HeroService;
-//# sourceMappingURL=hero.service.js.map
+exports.GetFavePipe = GetFavePipe;
+//# sourceMappingURL=get-fave.pipe.js.map

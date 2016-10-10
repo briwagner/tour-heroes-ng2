@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit }        from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
 // import { Input } from '@angular/core';
+
 import { Hero } from '../hero/hero';
+import { HeroService } from '../hero/hero.service';
 
 @Component({
     moduleId: module.id,
@@ -10,9 +14,27 @@ import { Hero } from '../hero/hero';
     inputs: ['hero']
 })
 
-export class HeroDetailComponent {
+export class HeroDetailComponent implements OnInit {
     // @Input()
     hero: Hero;
+
+    constructor(
+        private heroService: HeroService,
+        private route: ActivatedRoute,
+        private location: Location
+    ) {}
+
+    ngOnInit() {
+        this.route.params.forEach((params: Params) => {
+            let id = +params['id'];
+            this.heroService.getHero(id)
+                .then(hero => this.hero = hero);
+        });
+    }
+
+    goBack() {
+        this.location.back();
+    }
 
     addFave() {
         this.hero.faves += 1;

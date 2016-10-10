@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Hero } from '../hero/hero';
 import { HeroService } from '../hero/hero.service';
+import { GetFavePipe } from '../shared/get-fave.pipe';
 
 @Component({
     moduleId: module.id,
@@ -14,12 +16,18 @@ import { HeroService } from '../hero/hero.service';
 export class DashboardComponent {
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private router: Router) {
+  }
 
   ngOnInit(): void {
     this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.sort( (a,b) => b.faves - a.faves) );
+      .then(heroes => this.heroes = heroes);
   }
 
-  gotoDetail(hero: Hero): void { /* not implemented yet */}
+  gotoDetail(hero: Hero): void { 
+    let link = ['/detail', hero.id];
+    this.router.navigate(link);
+  }
 }

@@ -7,6 +7,8 @@ import { HeroesComponent }  from '../heroes/heroes.component';
 import { HeroDetailComponent }  from '../hero-detail/hero-detail.component';
 import { HeroService } from '../hero/hero.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { GetFavePipe } from '../shared/get-fave.pipe';
+import { SortIdPipe } from '../shared/sort-id.pipe';
 
 import { routing } from '../app.routing';
 
@@ -20,7 +22,9 @@ import { routing } from '../app.routing';
     AppComponent,
     DashboardComponent,
     HeroesComponent, 
-    HeroDetailComponent
+    HeroDetailComponent,
+    GetFavePipe,
+    SortIdPipe
   ],
   providers: [
     HeroService

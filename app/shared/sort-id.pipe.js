@@ -9,22 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_hero_1 = require('../mock-hero');
-var HeroService = (function () {
-    function HeroService() {
+var SortIdPipe = (function () {
+    function SortIdPipe() {
     }
-    HeroService.prototype.getHeroes = function () {
-        return Promise.resolve(mock_hero_1.HEROES);
+    SortIdPipe.prototype.transform = function (value, args) {
+        return value.slice(0, 6);
     };
-    HeroService.prototype.getHero = function (id) {
-        return this.getHeroes()
-            .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
-    };
-    HeroService = __decorate([
-        core_1.Injectable(), 
+    SortIdPipe = __decorate([
+        core_1.Pipe({
+            name: 'sortId'
+        }), 
         __metadata('design:paramtypes', [])
-    ], HeroService);
-    return HeroService;
+    ], SortIdPipe);
+    return SortIdPipe;
 }());
-exports.HeroService = HeroService;
-//# sourceMappingURL=hero.service.js.map
+exports.SortIdPipe = SortIdPipe;
+//# sourceMappingURL=sort-id.pipe.js.map
