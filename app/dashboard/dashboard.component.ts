@@ -14,7 +14,7 @@ import { GetFavePipe } from '../shared/get-fave.pipe';
 })
 
 export class DashboardComponent {
-  heroes: Hero[] = [];
+  heroesDash: Hero[] = [];
 
   constructor(
     private heroService: HeroService,
@@ -23,7 +23,7 @@ export class DashboardComponent {
 
   ngOnInit(): void {
     this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes);
+      .then(heroes => this.heroesDash = heroes);
   }
 
   gotoDetail(hero: Hero): void { 

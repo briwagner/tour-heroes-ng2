@@ -15,12 +15,12 @@ var DashboardComponent = (function () {
     function DashboardComponent(heroService, router) {
         this.heroService = heroService;
         this.router = router;
-        this.heroes = [];
+        this.heroesDash = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.heroService.getHeroes()
-            .then(function (heroes) { return _this.heroes = heroes; });
+            .then(function (heroes) { return _this.heroesDash = heroes; });
     };
     DashboardComponent.prototype.gotoDetail = function (hero) {
         var link = ['/detail', hero.id];
